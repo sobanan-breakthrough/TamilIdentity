@@ -1,0 +1,373 @@
+/* ============================================================================
+   TamilIdentity∞ — Design system
+   Palette drawn from the five landscapes, temple gold, and Keezhadi terracotta.
+   Accessibility-first: honours prefers-reduced-motion, prefers-contrast,
+   supports user text-scaling, dark & light themes, and full keyboard use.
+   ============================================================================ */
+
+:root {
+  /* Core palette */
+  --ink: #f4ece0;            /* warm off-white text on dark */
+  --ink-soft: #cbb89f;
+  --bg: #0f0b16;             /* deep threshold indigo */
+  --bg-2: #171226;
+  --panel: rgba(255, 255, 255, 0.045);
+  --panel-line: rgba(255, 214, 150, 0.16);
+  --gold: #e9b949;           /* arati lamp */
+  --gold-soft: #f2d38a;
+  --terracotta: #c96f43;     /* Keezhadi earth */
+  --accent: var(--gold);
+
+  /* Landscape hues */
+  --kurinji: #6d5aa8;
+  --mullai: #3f7d54;
+  --marutam: #c8992e;
+  --neytal: #2b8a9e;
+  --palai: #b56a34;
+
+  --maxw: 1120px;
+  --radius: 18px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --font-scale: 1;
+
+  --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --tamil: "Noto Serif Tamil", "Latha", serif;
+  --tamil-sans: "Noto Sans Tamil", "Latha", sans-serif;
+}
+
+[data-theme="light"] {
+  --ink: #241a12;
+  --ink-soft: #5c4a38;
+  --bg: #f7efe2;
+  --bg-2: #efe3cf;
+  --panel: rgba(40, 24, 10, 0.04);
+  --panel-line: rgba(120, 80, 20, 0.22);
+  --gold: #a9741a;
+  --gold-soft: #8a5e10;
+}
+
+[data-contrast="high"] {
+  --ink: #ffffff;
+  --ink-soft: #ffffff;
+  --bg: #000000;
+  --bg-2: #000000;
+  --panel: rgba(255, 255, 255, 0.1);
+  --panel-line: #ffd600;
+  --gold: #ffd600;
+  --gold-soft: #ffe873;
+}
+[data-contrast="high"][data-theme="light"] {
+  --ink: #000000; --ink-soft: #000000; --bg: #ffffff; --bg-2: #ffffff;
+  --gold: #7a4b00; --panel-line: #000000; --panel: rgba(0,0,0,0.06);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+[data-motion="off"] * {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: calc(1.06rem * var(--font-scale));
+  line-height: 1.72;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Cosmic background wash */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(1200px 800px at 80% -10%, rgba(233,185,73,0.10), transparent 60%),
+    radial-gradient(900px 700px at 5% 20%, rgba(109,90,168,0.14), transparent 55%),
+    radial-gradient(1000px 900px at 50% 110%, rgba(43,138,158,0.10), transparent 55%),
+    linear-gradient(180deg, var(--bg), var(--bg-2));
+}
+
+.tamil { font-family: var(--tamil); }
+.rom { font-style: italic; color: var(--gold-soft); }
+
+/* ---- Skip link & focus ---- */
+.skip-link {
+  position: absolute; left: 8px; top: -60px;
+  background: var(--gold); color: #1a1206; padding: 10px 16px;
+  border-radius: 8px; font-weight: 700; z-index: 200;
+  transition: top 0.2s var(--ease);
+}
+.skip-link:focus { top: 8px; }
+
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---- Layout ---- */
+.wrap { width: min(var(--maxw), 92vw); margin-inline: auto; }
+section { padding: clamp(3.5rem, 9vh, 7rem) 0; position: relative; }
+.eyebrow {
+  text-transform: uppercase; letter-spacing: 0.28em;
+  font-size: 0.74rem; font-weight: 700; color: var(--gold);
+  margin: 0 0 0.9rem;
+}
+h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.08; }
+h2 { font-size: clamp(2rem, 5vw, 3.4rem); margin: 0 0 1rem; letter-spacing: -0.01em; }
+h3 { font-size: clamp(1.3rem, 3vw, 1.8rem); margin: 0 0 0.5rem; }
+p { max-width: 62ch; }
+.lead { font-size: 1.16em; color: var(--ink); }
+.muted { color: var(--ink-soft); }
+
+/* ============================================================
+   Accessibility control bar
+   ============================================================ */
+.a11y-bar {
+  position: fixed; z-index: 100; top: 0; left: 0; right: 0;
+  display: flex; gap: 0.4rem; align-items: center; justify-content: flex-end;
+  padding: 0.5rem clamp(0.8rem, 3vw, 1.6rem);
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--panel-line);
+}
+.a11y-bar .brand {
+  margin-right: auto; font-family: var(--serif); font-weight: 700;
+  font-size: 1.15rem; letter-spacing: 0.02em; color: var(--ink);
+  text-decoration: none; display: flex; align-items: center; gap: 0.4rem;
+}
+.a11y-bar .brand .inf { color: var(--gold); }
+.a11y-btn {
+  font: inherit; font-size: 0.8rem; font-weight: 600;
+  color: var(--ink); background: var(--panel);
+  border: 1px solid var(--panel-line); border-radius: 999px;
+  padding: 0.34rem 0.7rem; cursor: pointer; white-space: nowrap;
+  transition: background 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.a11y-btn:hover { background: color-mix(in srgb, var(--gold) 22%, transparent); }
+.a11y-btn[aria-pressed="true"] {
+  background: var(--gold); color: #1a1206; border-color: var(--gold);
+}
+.a11y-btn .ic { font-size: 0.95rem; }
+@media (max-width: 720px) {
+  .a11y-btn .lbl { display: none; }
+  .a11y-bar .brand { font-size: 1rem; }
+}
+
+/* ============================================================
+   Hero — the Threshold (Vasal)
+   ============================================================ */
+.hero {
+  min-height: 100svh; display: grid; place-items: center;
+  text-align: center; padding-top: 4rem;
+}
+.hero .infinity {
+  font-size: clamp(3rem, 12vw, 8rem); color: var(--gold);
+  line-height: 1; filter: drop-shadow(0 0 30px rgba(233,185,73,0.35));
+  animation: pulse 6s var(--ease) infinite;
+}
+@keyframes pulse { 50% { opacity: 0.72; transform: scale(1.04); } }
+.hero h1 {
+  font-size: clamp(2.6rem, 8vw, 6rem); margin: 0.4rem 0;
+  background: linear-gradient(180deg, var(--ink), var(--gold-soft));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero .verse {
+  font-family: var(--tamil); font-size: clamp(1.4rem, 4vw, 2.4rem);
+  color: var(--gold-soft); margin: 1.4rem 0 0.3rem;
+}
+.hero .verse-rom { font-style: italic; color: var(--ink-soft); }
+.hero .verse-en { font-size: 1.2rem; max-width: 30ch; margin: 0.6rem auto 0; }
+.scroll-cue { margin-top: 2.6rem; color: var(--ink-soft); font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; }
+.scroll-cue span { display: block; font-size: 1.4rem; animation: bob 2s infinite; }
+@keyframes bob { 50% { transform: translateY(8px); } }
+
+/* ============================================================
+   Reveal-on-scroll
+   ============================================================ */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+.reveal.in { opacity: 1; transform: none; }
+
+/* ============================================================
+   Pillars intro grid
+   ============================================================ */
+.pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; margin-top: 2rem; }
+.pillar-card {
+  background: var(--panel); border: 1px solid var(--panel-line);
+  border-radius: var(--radius); padding: 1.5rem; text-decoration: none; color: inherit;
+  display: block; transition: transform 0.3s var(--ease), border-color 0.3s var(--ease), background 0.3s var(--ease);
+}
+.pillar-card:hover { transform: translateY(-6px); border-color: var(--gold); background: color-mix(in srgb, var(--gold) 8%, var(--panel)); }
+.pillar-card .num { font-family: var(--serif); font-size: 2.4rem; color: var(--gold); line-height: 1; }
+.pillar-card .t-tamil { font-family: var(--tamil-sans); color: var(--gold-soft); font-size: 0.95rem; }
+
+/* ============================================================
+   Timeline
+   ============================================================ */
+.timeline { position: relative; margin-top: 2.5rem; padding-left: 1.5rem; }
+.timeline::before { content: ""; position: absolute; left: 0; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(var(--gold), transparent); }
+.tl-item { position: relative; padding: 0 0 1.6rem 1.6rem; }
+.tl-item::before { content: ""; position: absolute; left: -0.42rem; top: 0.4rem; width: 12px; height: 12px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px color-mix(in srgb, var(--gold) 22%, transparent); }
+.tl-when { font-weight: 700; color: var(--gold-soft); font-size: 0.9rem; letter-spacing: 0.04em; }
+.tl-what { margin: 0.15rem 0 0; }
+
+/* ============================================================
+   Aintinai — interactive landscapes
+   ============================================================ */
+.tinai-tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 2rem 0 1.4rem; }
+.tinai-tab {
+  font: inherit; font-weight: 600; cursor: pointer;
+  border: 1px solid var(--panel-line); border-radius: 999px;
+  padding: 0.6rem 1.1rem; background: var(--panel); color: var(--ink);
+  display: flex; flex-direction: column; align-items: center; gap: 0.1rem; min-width: 92px;
+  transition: transform 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+.tinai-tab .tt-tamil { font-family: var(--tamil-sans); font-size: 1.15rem; color: var(--hue, var(--gold)); }
+.tinai-tab .tt-en { font-size: 0.72rem; color: var(--ink-soft); font-weight: 500; }
+.tinai-tab:hover { transform: translateY(-3px); }
+.tinai-tab[aria-selected="true"] { border-color: var(--hue); background: color-mix(in srgb, var(--hue) 20%, transparent); }
+.tinai-tab[aria-selected="true"] .tt-en { color: var(--ink); }
+
+.tinai-panel {
+  border: 1px solid var(--panel-line); border-radius: var(--radius);
+  padding: clamp(1.4rem, 4vw, 2.6rem); overflow: hidden; position: relative;
+  background:
+    linear-gradient(120deg, color-mix(in srgb, var(--hue) 26%, transparent), transparent 70%),
+    var(--panel);
+  transition: background 0.5s var(--ease);
+}
+.tinai-panel .tp-head { display: flex; align-items: baseline; gap: 0.8rem; flex-wrap: wrap; }
+.tinai-panel .tp-tamil { font-family: var(--tamil); font-size: clamp(2rem, 6vw, 3.2rem); color: var(--hue); }
+.tinai-panel .tp-en { color: var(--ink-soft); font-size: 1rem; }
+.tp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-top: 1.4rem; }
+.tp-cell { background: color-mix(in srgb, var(--bg) 40%, transparent); border-radius: 12px; padding: 1rem 1.1rem; border: 1px solid var(--panel-line); }
+.tp-cell .k { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold); font-weight: 700; }
+.tp-cell .v { font-size: 1.05rem; margin-top: 0.2rem; }
+.tp-cell .v small { display: block; color: var(--ink-soft); font-size: 0.85rem; }
+.tp-meaning { margin-top: 1.4rem; font-size: 1.12rem; font-family: var(--serif); font-style: italic; max-width: 66ch; }
+
+/* ============================================================
+   Feature quote blocks
+   ============================================================ */
+.quote-block {
+  border-left: 4px solid var(--gold); padding: 0.4rem 0 0.4rem 1.6rem; margin: 2rem 0;
+}
+.quote-block .q-tamil { font-family: var(--tamil); font-size: clamp(1.6rem, 5vw, 2.6rem); color: var(--gold-soft); line-height: 1.35; }
+.quote-block .q-rom { font-style: italic; color: var(--ink-soft); margin: 0.3rem 0; }
+.quote-block .q-en { font-family: var(--serif); font-size: clamp(1.2rem, 3vw, 1.7rem); }
+.quote-block cite { display: block; margin-top: 0.7rem; color: var(--ink-soft); font-style: normal; font-size: 0.9rem; }
+
+/* ---- Kural card carousel ---- */
+.kural-strip { display: grid; grid-auto-flow: column; grid-auto-columns: min(85vw, 360px); gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: 1.4rem 0.2rem 1.6rem; margin: 0 -0.2rem; scrollbar-width: thin; }
+.kural-card { scroll-snap-align: start; background: var(--panel); border: 1px solid var(--panel-line); border-radius: var(--radius); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; }
+.kural-card .k-n { font-family: var(--serif); color: var(--gold); font-size: 0.9rem; letter-spacing: 0.1em; }
+.kural-card .k-tamil { font-family: var(--tamil); font-size: 1.2rem; white-space: pre-line; color: var(--gold-soft); }
+.kural-card .k-rom { white-space: pre-line; font-style: italic; font-size: 0.86rem; color: var(--ink-soft); }
+.kural-card .k-en { font-family: var(--serif); font-size: 1.12rem; }
+.kural-card .k-theme { margin-top: auto; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold); }
+
+/* ============================================================
+   Siddhar voices
+   ============================================================ */
+.siddhar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 2rem; }
+.siddhar-card { background: var(--panel); border: 1px solid var(--panel-line); border-radius: var(--radius); padding: 1.5rem; }
+.siddhar-card .s-name { font-family: var(--serif); font-size: 1.3rem; }
+.siddhar-card .s-name .s-tamil { font-family: var(--tamil-sans); color: var(--gold-soft); font-size: 0.95rem; display: block; }
+.siddhar-card .s-line { font-family: var(--serif); font-style: italic; font-size: 1.1rem; color: var(--gold-soft); margin: 0.6rem 0; }
+.siddhar-card .s-note { font-size: 0.95rem; color: var(--ink-soft); }
+
+/* ============================================================
+   Body-as-temple interactive
+   ============================================================ */
+.temple { display: grid; grid-template-columns: 1fr 1.1fr; gap: 2rem; align-items: center; margin-top: 2rem; }
+@media (max-width: 820px) { .temple { grid-template-columns: 1fr; } }
+.temple-figure { position: relative; display: grid; place-items: center; min-height: 340px; }
+.temple-svg { width: 100%; max-width: 360px; height: auto; }
+.temple-svg .hot { cursor: pointer; transition: opacity 0.25s var(--ease); }
+.temple-svg .hot:hover, .temple-svg .hot:focus { opacity: 1; outline: none; }
+.temple-dot { fill: var(--gold); stroke: var(--bg); stroke-width: 3; transition: r 0.25s var(--ease), fill 0.25s var(--ease); }
+.temple-dot.active { fill: var(--terracotta); }
+.temple-list { display: flex; flex-direction: column; gap: 0.5rem; }
+.temple-item { text-align: left; background: var(--panel); border: 1px solid var(--panel-line); border-radius: 12px; padding: 0.9rem 1.1rem; cursor: pointer; color: inherit; font: inherit; transition: border-color 0.25s var(--ease), background 0.25s var(--ease); }
+.temple-item:hover { border-color: var(--gold); }
+.temple-item.active { border-color: var(--gold); background: color-mix(in srgb, var(--gold) 12%, var(--panel)); }
+.temple-item .ti-label { font-weight: 700; }
+.temple-item .ti-label .ti-tamil { font-family: var(--tamil-sans); color: var(--gold-soft); font-weight: 500; margin-left: 0.4rem; }
+.temple-item .ti-ritual { color: var(--gold-soft); font-family: var(--serif); font-style: italic; }
+.temple-item .ti-note { font-size: 0.9rem; color: var(--ink-soft); max-height: 0; overflow: hidden; transition: max-height 0.35s var(--ease), margin 0.35s var(--ease); }
+.temple-item.active .ti-note { max-height: 8rem; margin-top: 0.4rem; }
+
+/* breathing guide */
+.breath { margin-top: 1.6rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.breath-orb { width: 68px; height: 68px; border-radius: 50%; background: radial-gradient(circle at 40% 35%, var(--gold-soft), var(--gold)); box-shadow: 0 0 40px rgba(233,185,73,0.4); }
+.breath.on .breath-orb { animation: breathe 10s ease-in-out infinite; }
+@keyframes breathe { 0%,100% { transform: scale(0.7); } 45% { transform: scale(1.25); } 55% { transform: scale(1.25); } }
+.breath-label { font-family: var(--serif); font-style: italic; color: var(--ink-soft); }
+
+/* ============================================================
+   Comparative matrix
+   ============================================================ */
+.matrix-scroll { overflow-x: auto; margin-top: 2rem; border: 1px solid var(--panel-line); border-radius: var(--radius); }
+table.matrix { border-collapse: collapse; width: 100%; min-width: 720px; }
+.matrix th, .matrix td { text-align: left; padding: 0.9rem 1.1rem; border-bottom: 1px solid var(--panel-line); vertical-align: top; font-size: 0.96rem; }
+.matrix thead th { background: color-mix(in srgb, var(--gold) 14%, transparent); font-family: var(--serif); font-size: 1.05rem; color: var(--gold-soft); position: sticky; top: 0; }
+.matrix tbody th { font-weight: 700; color: var(--gold); }
+.matrix tbody tr:hover td, .matrix tbody tr:hover th { background: var(--panel); }
+
+/* ============================================================
+   Behavioural-change engine — "Build from here"
+   ============================================================ */
+.practice-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 2rem; }
+.practice-card { background: var(--panel); border: 1px solid var(--panel-line); border-radius: var(--radius); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; }
+.practice-card h3 { margin: 0; }
+.practice-card .p-tamil { font-family: var(--tamil-sans); color: var(--gold-soft); font-size: 0.95rem; }
+.practice-card .p-from { font-size: 0.82rem; color: var(--ink-soft); }
+.practice-card .p-prompt { font-family: var(--serif); font-style: italic; font-size: 1.1rem; color: var(--gold-soft); }
+.practice-card .p-action { font-size: 0.98rem; }
+.pledge-check { display: flex; align-items: flex-start; gap: 0.6rem; margin-top: auto; cursor: pointer; font-size: 0.92rem; padding-top: 0.6rem; }
+.pledge-check input { width: 1.2rem; height: 1.2rem; margin-top: 0.15rem; accent-color: var(--gold); flex: none; }
+
+/* Reflection / journal */
+.reflect { margin-top: 2.6rem; background: var(--panel); border: 1px solid var(--panel-line); border-radius: var(--radius); padding: clamp(1.4rem, 4vw, 2.4rem); }
+.reflect label { display: block; font-family: var(--serif); font-size: 1.3rem; color: var(--gold-soft); margin-bottom: 0.8rem; }
+.reflect textarea { width: 100%; min-height: 130px; resize: vertical; background: color-mix(in srgb, var(--bg) 50%, transparent); border: 1px solid var(--panel-line); border-radius: 12px; padding: 1rem; color: var(--ink); font: inherit; }
+.reflect .row { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1rem; align-items: center; }
+.btn { font: inherit; font-weight: 700; cursor: pointer; border-radius: 999px; padding: 0.7rem 1.4rem; border: 1px solid var(--gold); background: var(--gold); color: #1a1206; transition: transform 0.2s var(--ease); }
+.btn:hover { transform: translateY(-2px); }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--panel-line); }
+.save-note { color: var(--gold-soft); font-size: 0.9rem; }
+
+.progress-ring { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.95rem; color: var(--ink-soft); }
+.progress-ring b { color: var(--gold); }
+
+/* ============================================================
+   Footer
+   ============================================================ */
+footer { border-top: 1px solid var(--panel-line); padding: 3rem 0; }
+footer .f-verse { font-family: var(--tamil); color: var(--gold-soft); font-size: 1.3rem; }
+footer details { margin-top: 1.4rem; }
+footer summary { cursor: pointer; font-weight: 700; color: var(--gold); }
+footer .sources { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: 0.5rem; }
+footer .sources li { font-size: 0.86rem; color: var(--ink-soft); padding-left: 1rem; border-left: 2px solid var(--panel-line); }
+footer .colophon { margin-top: 2rem; font-size: 0.82rem; color: var(--ink-soft); }
+footer a { color: var(--gold-soft); }
+
+/* Toast for save confirmation */
+.toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(120%); background: var(--gold); color: #1a1206; padding: 0.8rem 1.4rem; border-radius: 999px; font-weight: 700; z-index: 150; transition: transform 0.4s var(--ease); box-shadow: 0 10px 40px rgba(0,0,0,0.4); }
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+@media (max-width: 640px) {
+  .temple { gap: 1.2rem; }
+  section { padding: 3rem 0; }
+}
