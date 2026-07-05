@@ -1,0 +1,133 @@
+/* ============================================================================
+   TamilIdentity∞ — Layout & navigation enhancements (v2)
+   Loaded after styles.css. Adds: reading progress, scroll-spy side nav,
+   chapter ornaments, decorative dividers, richer card systems, map & more.
+   ============================================================================ */
+
+/* ---------- Reading progress bar ---------- */
+.progress-bar {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+  background: linear-gradient(90deg, var(--terracotta), var(--gold));
+  z-index: 120; transition: width 0.1s linear;
+}
+[data-motion="off"] .progress-bar { transition: none; }
+
+/* ---------- Side scroll-spy navigation (desktop) ---------- */
+.dotnav {
+  position: fixed; right: max(1rem, 2vw); top: 50%; transform: translateY(-50%);
+  z-index: 90; display: flex; flex-direction: column; gap: 0.9rem; align-items: flex-end;
+}
+.dotnav a {
+  display: flex; align-items: center; gap: 0.6rem; text-decoration: none;
+  color: var(--ink-soft); font-size: 0.72rem; letter-spacing: 0.04em;
+}
+.dotnav .dot {
+  width: 11px; height: 11px; border-radius: 50%;
+  border: 1.5px solid var(--ink-soft); background: transparent;
+  transition: all 0.3s var(--ease); flex: none;
+}
+.dotnav .lbl {
+  opacity: 0; transform: translateX(6px); transition: all 0.3s var(--ease);
+  white-space: nowrap; max-width: 0; overflow: hidden;
+}
+.dotnav a:hover .lbl, .dotnav a:focus-visible .lbl { opacity: 1; transform: none; max-width: 220px; }
+.dotnav a:hover .dot { border-color: var(--gold); }
+.dotnav a[aria-current="true"] .dot { background: var(--gold); border-color: var(--gold); transform: scale(1.35); box-shadow: 0 0 0 4px color-mix(in srgb, var(--gold) 20%, transparent); }
+.dotnav a[aria-current="true"] .lbl { opacity: 1; transform: none; max-width: 220px; color: var(--ink); }
+@media (max-width: 1180px) { .dotnav { display: none; } }
+
+/* ---------- Chapter ornament ---------- */
+.chapter-mark {
+  display: flex; align-items: center; gap: 1rem; margin-bottom: 0.4rem;
+}
+.chapter-mark .cm-num {
+  font-family: var(--serif); font-size: clamp(2.6rem, 7vw, 4.4rem);
+  line-height: 0.8; color: transparent; -webkit-text-stroke: 1.5px var(--gold);
+  text-stroke: 1.5px var(--gold); opacity: 0.9;
+}
+.chapter-mark .cm-tamil { font-family: var(--tamil); color: var(--gold-soft); font-size: 1.1rem; }
+
+/* ---------- Decorative divider (kolam-inspired) ---------- */
+.divider { display: flex; align-items: center; justify-content: center; gap: 1rem; padding: 1rem 0; opacity: 0.7; }
+.divider::before, .divider::after { content: ""; height: 1px; flex: 1; max-width: 160px; background: linear-gradient(90deg, transparent, var(--gold-soft)); }
+.divider::after { background: linear-gradient(90deg, var(--gold-soft), transparent); }
+.divider .glyph { color: var(--gold); font-size: 1.1rem; }
+
+/* ---------- Anthology / list grids ---------- */
+.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0.8rem; margin-top: 1.6rem; }
+.info-card {
+  background: var(--panel); border: 1px solid var(--panel-line); border-radius: 14px;
+  padding: 1.1rem 1.2rem; transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.info-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+.info-card .ic-title { font-family: var(--serif); font-size: 1.15rem; color: var(--gold-soft); }
+.info-card .ic-title .ic-tamil { font-family: var(--tamil-sans); font-size: 0.95rem; display: block; color: var(--ink); }
+.info-card .ic-desc { font-size: 0.9rem; color: var(--ink-soft); margin-top: 0.3rem; }
+
+/* ---------- Poem feature block ---------- */
+.poem {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--kurinji) 16%, transparent), transparent 60%), var(--panel);
+  border: 1px solid var(--panel-line); border-radius: var(--radius);
+  padding: clamp(1.4rem, 4vw, 2.4rem); margin: 1.6rem 0;
+}
+.poem .p-tamil { font-family: var(--tamil); font-size: clamp(1.1rem, 3vw, 1.5rem); color: var(--gold-soft); white-space: pre-line; line-height: 1.7; }
+.poem .p-rom { font-style: italic; color: var(--ink-soft); white-space: pre-line; margin: 0.6rem 0; }
+.poem .p-en { font-family: var(--serif); font-size: clamp(1.1rem, 3vw, 1.4rem); white-space: pre-line; line-height: 1.5; }
+.poem cite { display: block; margin-top: 0.9rem; color: var(--gold); font-style: normal; font-size: 0.86rem; letter-spacing: 0.04em; }
+
+/* ---------- Dynasty / triad cards ---------- */
+.triad { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.6rem; }
+.triad-card { text-align: center; background: var(--panel); border: 1px solid var(--panel-line); border-radius: var(--radius); padding: 1.6rem 1.2rem; }
+.triad-card .emblem { font-size: 2rem; }
+.triad-card .t-name { font-family: var(--serif); font-size: 1.4rem; color: var(--gold-soft); margin-top: 0.4rem; }
+.triad-card .t-tamil { font-family: var(--tamil-sans); color: var(--gold); font-size: 1rem; }
+.triad-card .t-desc { font-size: 0.9rem; color: var(--ink-soft); margin-top: 0.5rem; }
+
+/* ---------- Diaspora list ---------- */
+.diaspora { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.6rem; }
+.diaspora .place {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--panel); border: 1px solid var(--panel-line); border-radius: 999px;
+  padding: 0.5rem 1rem; font-size: 0.92rem;
+}
+.diaspora .place .flag { font-size: 1.1rem; }
+.diaspora .place b { color: var(--gold-soft); }
+
+/* ---------- Muthamizh triad (Iyal/Isai/Natakam) ---------- */
+.mutham { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.6rem; }
+.mutham-card { background: var(--panel); border: 1px solid var(--panel-line); border-radius: var(--radius); padding: 1.5rem; }
+.mutham-card .m-icon { font-size: 1.8rem; }
+.mutham-card h3 { margin: 0.4rem 0 0.2rem; }
+.mutham-card .m-tamil { font-family: var(--tamil-sans); color: var(--gold-soft); }
+
+/* ---------- Pull-quote (Bharathiyar / Avvaiyar etc.) ---------- */
+.pull {
+  font-family: var(--serif); font-size: clamp(1.4rem, 4vw, 2.2rem);
+  font-style: italic; line-height: 1.4; color: var(--gold-soft);
+  border: none; padding: 1.5rem 0; margin: 1.6rem 0; max-width: 30ch;
+}
+.pull .attr { display: block; font-size: 0.9rem; font-style: normal; color: var(--ink-soft); margin-top: 0.6rem; letter-spacing: 0.04em; }
+
+/* ---------- Section intro spacing refinement ---------- */
+section > .wrap > .lead { margin-bottom: 0.5rem; }
+
+/* ---------- "Back to top" pill ---------- */
+.to-top {
+  position: fixed; bottom: 20px; right: 20px; z-index: 95;
+  width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--panel-line);
+  background: color-mix(in srgb, var(--bg) 80%, transparent); backdrop-filter: blur(10px);
+  color: var(--gold); font-size: 1.2rem; cursor: pointer; display: grid; place-items: center;
+  opacity: 0; pointer-events: none; transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.to-top.show { opacity: 1; pointer-events: auto; }
+.to-top:hover { transform: translateY(-3px); }
+@media (max-width: 1180px) { .to-top { bottom: 16px; right: 16px; } }
+
+/* ---------- Expand/collapse "learn more" ---------- */
+details.more { margin-top: 1rem; border-top: 1px solid var(--panel-line); padding-top: 0.8rem; }
+details.more > summary { cursor: pointer; color: var(--gold); font-weight: 600; list-style: none; display: flex; align-items: center; gap: 0.5rem; }
+details.more > summary::-webkit-details-marker { display: none; }
+details.more > summary::before { content: "＋"; color: var(--gold); font-weight: 700; }
+details.more[open] > summary::before { content: "－"; }
+details.more .more-body { padding-top: 0.8rem; color: var(--ink-soft); }
+details.more .more-body p { max-width: 68ch; }
