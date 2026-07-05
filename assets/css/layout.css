@@ -131,3 +131,45 @@ details.more > summary::before { content: "＋"; color: var(--gold); font-weight
 details.more[open] > summary::before { content: "－"; }
 details.more .more-body { padding-top: 0.8rem; color: var(--ink-soft); }
 details.more .more-body p { max-width: 68ch; }
+
+/* ============================================================================
+   UX refinements (v2.1)
+   ============================================================================ */
+
+/* Anchor targets clear the fixed control bar so headings aren't hidden */
+section[id], header[id] { scroll-margin-top: 78px; }
+
+/* Hero paragraphs stay centred despite the global paragraph max-width */
+.hero p { margin-inline: auto; }
+.hero .verse, .hero .verse-rom { max-width: none; }
+
+/* Comfortable, accessible tap targets (≥44px) */
+.a11y-btn { min-height: 44px; display: inline-flex; align-items: center; gap: 0.28rem; }
+.dotnav a { min-height: 32px; }
+@media (max-width: 720px) {
+  .a11y-btn { padding: 0.5rem 0.7rem; }
+  .a11y-bar { gap: 0.3rem; }
+}
+
+/* Kural carousel: swipe affordance + tidy scrollbar */
+.kural-strip { scroll-padding-inline: 0.2rem; scrollbar-color: var(--gold-soft) transparent; }
+.kural-strip::-webkit-scrollbar { height: 8px; }
+.kural-strip::-webkit-scrollbar-track { background: transparent; }
+.kural-strip::-webkit-scrollbar-thumb { background: var(--panel-line); border-radius: 8px; }
+.kural-strip::-webkit-scrollbar-thumb:hover { background: var(--gold-soft); }
+.kural-wrap { position: relative; }
+.kural-wrap::after {
+  content: "swipe →"; position: absolute; right: 0; top: -1.9rem;
+  font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold); opacity: 0.75;
+}
+@media (min-width: 900px) { .kural-wrap::after { content: "drag or scroll →"; } }
+
+/* Progressive-enhancement guard: only hide reveal content once JS is active,
+   so the page is never blank if the script fails to run. */
+.reveal { opacity: 1; transform: none; }
+.js .reveal { opacity: 0; transform: translateY(28px); }
+.js .reveal.in { opacity: 1; transform: none; }
+
+/* Respect reduced motion for the reveal + progress transitions */
+[data-motion="off"] .reveal { opacity: 1 !important; transform: none !important; }
