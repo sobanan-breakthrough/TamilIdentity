@@ -30,8 +30,10 @@
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --font-scale: 1;
 
-  --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-  --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* Tamil fonts are included as fallbacks so translated (Tamil) text renders
+     correctly in any element via per-glyph font fallback. */
+  --serif: "Cormorant Garamond", "Noto Serif Tamil", Georgia, "Times New Roman", serif;
+  --sans: "Inter", "Noto Sans Tamil", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --tamil: "Noto Serif Tamil", "Latha", serif;
   --tamil-sans: "Noto Sans Tamil", "Latha", sans-serif;
 }

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TamilIdentity∞ — What it means to be Tamil</title>
-  <meta name="description" content="An interactive, accessible journey through the ideas that made Tamil identity — Sangam poetics, the Tirukkuṟaḷ, the Siddhars, and the living culture — built to help a generation understand what it truly means to be Tamil, and build from there." />
+  <meta name="description" content="An interactive, accessible, bilingual (English/Tamil) journey through the ideas that made Tamil identity — Sangam poetics, the Tirukkuṟaḷ, the Siddhars, and the living culture." />
   <meta name="theme-color" content="#0f0b16" />
   <script>document.documentElement.classList.add('js');</script>
   <meta property="og:title" content="TamilIdentity∞" />
@@ -19,42 +19,44 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90' fill='%23e9b949'%3E%E2%88%9E%3C/text%3E%3C/svg%3E" />
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
   <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
 
-  <!-- Accessibility control bar -->
-  <nav class="a11y-bar" aria-label="Accessibility and display controls">
+  <!-- Accessibility & language control bar -->
+  <nav class="a11y-bar" aria-label="Language, accessibility and display controls">
     <a href="#top" class="brand">Tamil<span>Identity</span><span class="inf">∞</span></a>
-    <button class="a11y-btn" id="btn-tamil" aria-pressed="false" title="Emphasise Tamil script">
-      <span class="ic" aria-hidden="true">அ</span><span class="lbl"> Tamil</span>
+    <button class="a11y-btn lang-btn" id="btn-lang" aria-pressed="false" title="Translate the site to Tamil">
+      <span class="ic" aria-hidden="true">அ⇄A</span><span class="lbl" id="lang-lbl">தமிழ்</span>
+    </button>
+    <button class="a11y-btn" id="btn-tamil" aria-pressed="false" title="Enlarge Tamil script">
+      <span class="ic" aria-hidden="true">அ⁺</span><span class="lbl" data-i18n="a11y.tamil"> Script</span>
     </button>
     <button class="a11y-btn" id="btn-text" title="Increase text size" aria-label="Increase text size">
-      <span class="ic" aria-hidden="true">A+</span><span class="lbl"> Text</span>
+      <span class="ic" aria-hidden="true">A+</span><span class="lbl" data-i18n="a11y.text"> Text</span>
     </button>
     <button class="a11y-btn" id="btn-contrast" aria-pressed="false" title="High contrast">
-      <span class="ic" aria-hidden="true">◐</span><span class="lbl"> Contrast</span>
+      <span class="ic" aria-hidden="true">◐</span><span class="lbl" data-i18n="a11y.contrast"> Contrast</span>
     </button>
     <button class="a11y-btn" id="btn-motion" aria-pressed="false" title="Reduce motion">
-      <span class="ic" aria-hidden="true">✽</span><span class="lbl"> Motion</span>
+      <span class="ic" aria-hidden="true">✽</span><span class="lbl" data-i18n="a11y.motion"> Motion</span>
     </button>
     <button class="a11y-btn" id="btn-theme" aria-pressed="false" title="Toggle light / dark">
-      <span class="ic" aria-hidden="true">☾</span><span class="lbl"> Theme</span>
+      <span class="ic" aria-hidden="true">☾</span><span class="lbl" data-i18n="a11y.theme"> Theme</span>
     </button>
   </nav>
 
-  <!-- Scroll-spy side navigation (built by JS) -->
   <nav class="dotnav" id="dotnav" aria-label="Section navigation"></nav>
 
   <!-- ===================== HERO / THRESHOLD ===================== -->
   <header class="hero" id="top">
     <div class="wrap">
       <div class="infinity" aria-hidden="true">∞</div>
-      <p class="eyebrow" style="text-align:center">Vāsal · The Threshold</p>
-      <h1>What does it mean<br />to be Tamil?</h1>
+      <p class="eyebrow" style="text-align:center" data-i18n="hero.eyebrow">Vāsal · The Threshold</p>
+      <h1 data-i18n="hero.h1">What does it mean<br />to be Tamil?</h1>
       <p class="verse tamil">யாதும் ஊரே யாவரும் கேளிர்</p>
       <p class="verse-rom">Yāthum ūrē yāvarum kēḷir</p>
-      <p class="verse-en lead">“Every town is our home town; every human, our kin.”</p>
-      <p class="scroll-cue">Cross the threshold <span aria-hidden="true">↓</span></p>
+      <p class="verse-en lead" data-i18n="hero.verseEn">“Every town is our home town; every human, our kin.”</p>
+      <p class="scroll-cue" data-i18n="hero.cue">Cross the threshold <span aria-hidden="true">↓</span></p>
     </div>
   </header>
 
@@ -63,31 +65,31 @@
     <!-- ===================== INTRO ===================== -->
     <section id="intro" data-nav>
       <div class="wrap reveal">
-        <p class="eyebrow">One of Earth's oldest living cultures</p>
-        <h2>Not a label you inherit.<br />A way of being you carry.</h2>
-        <p class="lead">Tamil has been spoken and written for more than <strong>two thousand years</strong> — one of the world's oldest living classical languages — and its people built cities on the Vaigai by the <strong>6th century BCE</strong>. Today 80 million Tamils carry it across the world. To be Tamil has never been a fixed badge of blood or birth. It was built, and rebuilt, through great currents of thought: the <strong>Sangam</strong> poets, the <strong>Tirukkuṟaḷ</strong>, the rebel <strong>Siddhars</strong>, and a living culture of song, dance and devotion.</p>
-        <p>Together they answer one question in four voices — and this is a tool to hear them, feel them, and <em>build from them</em>. Choose a pillar to begin, or travel the whole journey.</p>
+        <p class="eyebrow" data-i18n="intro.eyebrow">One of Earth's oldest living cultures</p>
+        <h2 data-i18n="intro.h2">Not a label you inherit.<br />A way of being you carry.</h2>
+        <p class="lead" data-i18n="intro.lead">Tamil has been spoken and written for more than <strong>two thousand years</strong> — one of the world's oldest living classical languages — and its people built cities on the Vaigai by the <strong>6th century BCE</strong>. Today 80 million Tamils carry it across the world. To be Tamil has never been a fixed badge of blood or birth. It was built, and rebuilt, through great currents of thought: the <strong>Sangam</strong> poets, the <strong>Tirukkuṟaḷ</strong>, the rebel <strong>Siddhars</strong>, and a living culture of song, dance and devotion.</p>
+        <p data-i18n="intro.p2">Together they answer one question in four voices — and this is a tool to hear them, feel them, and <em>build from them</em>. Choose a pillar to begin, or travel the whole journey.</p>
 
         <div class="pillars-grid" role="list">
           <a class="pillar-card" role="listitem" href="#aintinai">
-            <div class="num">01</div><h3>Ecological consciousness</h3>
+            <div class="num">01</div><h3 data-i18n="pillar1.h3">Ecological consciousness</h3>
             <div class="t-tamil">இயற்கை உணர்வு</div>
-            <p class="muted">Emotion woven into land — the five landscapes of Sangam poetry.</p>
+            <p class="muted" data-i18n="pillar1.d">Emotion woven into land — the five landscapes of Sangam poetry.</p>
           </a>
           <a class="pillar-card" role="listitem" href="#kinship">
-            <div class="num">02</div><h3>Universal kinship</h3>
+            <div class="num">02</div><h3 data-i18n="pillar2.h3">Universal kinship</h3>
             <div class="t-tamil">யாதும் ஊரே</div>
-            <p class="muted">A borderless ethic of Aram — every human, our kin.</p>
+            <p class="muted" data-i18n="pillar2.d">A borderless ethic of Aram — every human, our kin.</p>
           </a>
           <a class="pillar-card" role="listitem" href="#democracy">
-            <div class="num">03</div><h3>Radical social democracy</h3>
+            <div class="num">03</div><h3 data-i18n="pillar3.h3">Radical social democracy</h3>
             <div class="t-tamil">ஒன்றே குலம்</div>
-            <p class="muted">The Siddhars' revolt against caste and hierarchy.</p>
+            <p class="muted" data-i18n="pillar3.d">The Siddhars' revolt against caste and hierarchy.</p>
           </a>
           <a class="pillar-card" role="listitem" href="#body">
-            <div class="num">04</div><h3>The body as temple</h3>
+            <div class="num">04</div><h3 data-i18n="pillar4.h3">The body as temple</h3>
             <div class="t-tamil">உள்ளம் பெரும் கோயில்</div>
-            <p class="muted">The divine is not on a hill. It is within you.</p>
+            <p class="muted" data-i18n="pillar4.d">The divine is not on a hill. It is within you.</p>
           </a>
         </div>
       </div>
@@ -97,26 +99,23 @@
     <section id="land" data-nav aria-labelledby="land-h">
       <div class="wrap reveal">
         <div class="chapter-mark"><span class="cm-num">01</span><span class="cm-tamil">தமிழகம் · The Land</span></div>
-        <h2 id="land-h">A civilisation that never stopped</h2>
-        <p class="lead">From iron-age burials to a literate Sangam city, from the grammar of the <em>Tolkāppiyam</em> to the scholars who rescued the palm-leaf manuscripts — an unbroken thread reaches your hands.</p>
+        <h2 id="land-h" data-i18n="land.h2">A civilisation that never stopped</h2>
+        <p class="lead" data-i18n="land.lead">From iron-age burials to a literate Sangam city, from the grammar of the <em>Tolkāppiyam</em> to the scholars who rescued the palm-leaf manuscripts — an unbroken thread reaches your hands.</p>
         <div class="timeline" id="timeline" aria-label="Timeline of Tamil civilisation"></div>
 
         <div class="divider" aria-hidden="true"><span class="glyph">☙</span></div>
-
-        <h3>The tongue itself</h3>
+        <h3 data-i18n="land.h3lang">The tongue itself</h3>
         <p class="muted" id="language-intro"></p>
         <div class="info-grid" id="language-grid"></div>
 
         <div class="divider" aria-hidden="true"><span class="glyph">☙</span></div>
-
-        <h3>The three crowned kings</h3>
-        <p class="muted">The Muvēndhar — three dynasties whose emblems still stir Tamil hearts.</p>
+        <h3 data-i18n="land.h3dyn">The three crowned kings</h3>
+        <p class="muted" data-i18n="land.dynLead">The Muvēndhar — three dynasties whose emblems still stir Tamil hearts.</p>
         <div class="triad" id="dynasties"></div>
 
         <div class="divider" aria-hidden="true"><span class="glyph">☙</span></div>
-
-        <h3>One people, many shores</h3>
-        <p class="muted">To be Tamil today is to belong to a global family — carried across the world by trade, empire, indenture and exile, yet still one kin.</p>
+        <h3 data-i18n="land.h3dia">One people, many shores</h3>
+        <p class="muted" data-i18n="land.diaLead">To be Tamil today is to belong to a global family — carried across the world by trade, empire, indenture and exile, yet still one kin.</p>
         <div class="diaspora" id="diaspora"></div>
       </div>
     </section>
@@ -125,26 +124,25 @@
     <section id="aintinai" data-nav aria-labelledby="aintinai-h">
       <div class="wrap reveal">
         <div class="chapter-mark"><span class="cm-num">02</span><span class="cm-tamil">ஐந்திணை · Pillar I</span></div>
-        <p class="eyebrow">Ecological consciousness</p>
-        <h2 id="aintinai-h">The five landscapes within you</h2>
-        <p class="lead">Sangam poets believed the human heart is an extension of the earth. They mapped every emotion onto five landscapes — the <span class="tamil">ஐந்திணை</span> <span class="rom">Aintiṇai</span>. Each land holds an inner feeling (Akam) and a public face (Puṟam). <strong>Which landscape are you in right now?</strong></p>
+        <p class="eyebrow" data-i18n="ain.eyebrow">Ecological consciousness</p>
+        <h2 id="aintinai-h" data-i18n="ain.h2">The five landscapes within you</h2>
+        <p class="lead" data-i18n="ain.lead">Sangam poets believed the human heart is an extension of the earth. They mapped every emotion onto five landscapes — the <span class="tamil">ஐந்திணை</span> <span class="rom">Aintiṇai</span>. Each land holds an inner feeling (Akam) and a public face (Puṟam). <strong>Which landscape are you in right now?</strong></p>
 
         <div class="tinai-tabs" role="tablist" aria-label="The five landscapes" id="tinai-tabs"></div>
         <div class="tinai-panel" id="tinai-panel" role="tabpanel" tabindex="0"></div>
 
-        <details class="more" id="aintinai-theory">
-          <summary>How the landscape-code works</summary>
+        <details class="more">
+          <summary data-i18n="ain.theorySummary">How the landscape-code works</summary>
           <div class="more-body" id="aintinai-theory-body"></div>
         </details>
 
         <div class="divider" aria-hidden="true"><span class="glyph">☙</span></div>
-
-        <h3>Hear a Sangam voice</h3>
-        <p class="muted">Two thousand years old — a stranger becomes kin through love alone.</p>
+        <h3 data-i18n="ain.h3poem">Hear a Sangam voice</h3>
+        <p class="muted" data-i18n="ain.poemLead">Two thousand years old — a stranger becomes kin through love alone.</p>
         <blockquote class="poem" id="sangam-poem"></blockquote>
 
-        <details class="more" id="anthologies">
-          <summary>The books that survived</summary>
+        <details class="more">
+          <summary data-i18n="ain.anthSummary">The books that survived</summary>
           <div class="more-body" id="anthologies-body"></div>
         </details>
       </div>
@@ -154,31 +152,30 @@
     <section id="kinship" data-nav>
       <div class="wrap reveal">
         <div class="chapter-mark"><span class="cm-num">03</span><span class="cm-tamil">அறம் · Pillar II</span></div>
-        <p class="eyebrow">Universal kinship & Aram</p>
-        <h2>Every human, our kin</h2>
+        <p class="eyebrow" data-i18n="kin.eyebrow">Universal kinship & Aram</p>
+        <h2 data-i18n="kin.h2">Every human, our kin</h2>
         <blockquote class="quote-block">
           <p class="q-tamil">யாதும் ஊரே யாவரும் கேளிர்</p>
           <p class="q-rom">Yāthum ūrē yāvarum kēḷir</p>
-          <p class="q-en">“Every town is our home town; every human, our kin. Good and evil do not come from others — we make them within. Life is a raft on a storm-swollen river; because all are equally at its mercy, the wise neither fawn over the powerful nor scorn the weak.”</p>
+          <p class="q-en" data-i18n="kin.quote">“Every town is our home town; every human, our kin. Good and evil do not come from others — we make them within. Life is a raft on a storm-swollen river; because all are equally at its mercy, the wise neither fawn over the powerful nor scorn the weak.”</p>
           <cite id="yadhum-cite"></cite>
         </blockquote>
-        <p>Where other traditions tied nobility to birth, the Sangam ideal — the <strong>Cāṉṟōr</strong>, the noble human — was earned through deeds, justice and mercy. The <strong>Tirukkuṟaḷ</strong> made this a complete ethic: <strong>Aram</strong>.</p>
+        <p data-i18n="kin.p1">Where other traditions tied nobility to birth, the Sangam ideal — the <strong>Cāṉṟōr</strong>, the noble human — was earned through deeds, justice and mercy. The <strong>Tirukkuṟaḷ</strong> made this a complete ethic: <strong>Aram</strong>.</p>
 
         <p class="muted" id="aram-intro"></p>
         <div class="triad" id="aram-structure"></div>
 
-        <p class="muted">Swipe through a few couplets — verified Tamil, with G.U. Pope's English where noted.</p>
+        <p class="muted" data-i18n="kin.kuralLead">Swipe through a few couplets — verified Tamil, with G.U. Pope's English where noted.</p>
         <div class="kural-wrap"><div class="kural-strip" id="kural-strip" aria-label="Tirukkuṟaḷ couplets" tabindex="0"></div></div>
 
-        <details class="more" id="aram-more">
-          <summary>Why the Kuṟaḷ belongs to everyone</summary>
+        <details class="more">
+          <summary data-i18n="kin.aramSummary">Why the Kuṟaḷ belongs to everyone</summary>
           <div class="more-body"><p id="aram-vsdharma"></p><p id="aram-reach"></p></div>
         </details>
 
         <div class="divider" aria-hidden="true"><span class="glyph">☙</span></div>
-
-        <h3>When justice topples a throne</h3>
-        <p class="muted">The epic that made moral power the heart of Tamil identity.</p>
+        <h3 data-i18n="kin.h3epic">When justice topples a throne</h3>
+        <p class="muted" data-i18n="kin.epicLead">The epic that made moral power the heart of Tamil identity.</p>
         <div class="poem" id="epic"></div>
       </div>
     </section>
@@ -187,17 +184,17 @@
     <section id="democracy" data-nav>
       <div class="wrap reveal">
         <div class="chapter-mark"><span class="cm-num">04</span><span class="cm-tamil">சித்தர் · Pillar III</span></div>
-        <p class="eyebrow">Radical social democracy</p>
-        <h2>The rebels who wrote for everyone</h2>
-        <p class="lead">The <strong>Siddhars</strong> — wandering poets, healers and alchemists — refused priestly authority, temple gatekeeping and the caste system itself. They wrote in plain, spoken Tamil so their ideas could reach the people locked out of Sanskrit and out of the sanctum.</p>
+        <p class="eyebrow" data-i18n="dem.eyebrow">Radical social democracy</p>
+        <h2 data-i18n="dem.h2">The rebels who wrote for everyone</h2>
+        <p class="lead" data-i18n="dem.lead">The <strong>Siddhars</strong> — wandering poets, healers and alchemists — refused priestly authority, temple gatekeeping and the caste system itself. They wrote in plain, spoken Tamil so their ideas could reach the people locked out of Sanskrit and out of the sanctum.</p>
         <div class="siddhar-grid" id="siddhar-grid"></div>
 
-        <details class="more" id="siddha-science">
-          <summary>The science of the body-temple</summary>
+        <details class="more">
+          <summary data-i18n="dem.sciSummary">The science of the body-temple</summary>
           <div class="more-body">
             <p id="siddha-intro"></p>
             <div class="info-grid" id="siddha-grid"></div>
-            <p class="muted" style="margin-top:1rem">Note: the “eighteen Siddhars” is a traditional roster whose membership varies between sources; the dates and biographies are largely legendary. Siddha medicine survives today as one of India's recognised systems of traditional medicine.</p>
+            <p class="muted" data-i18n="dem.note" style="margin-top:1rem">Note: the “eighteen Siddhars” is a traditional roster whose membership varies between sources; the dates and biographies are largely legendary. Siddha medicine survives today as one of India's recognised systems of traditional medicine.</p>
           </div>
         </details>
       </div>
@@ -207,15 +204,15 @@
     <section id="body" data-nav>
       <div class="wrap reveal">
         <div class="chapter-mark"><span class="cm-num">05</span><span class="cm-tamil">கோயில் · Pillar IV</span></div>
-        <p class="eyebrow">The body as temple</p>
-        <h2>The temple you already are</h2>
+        <p class="eyebrow" data-i18n="body.eyebrow">The body as temple</p>
+        <h2 data-i18n="body.h2">The temple you already are</h2>
         <blockquote class="quote-block">
           <p class="q-tamil" id="temple-verse-tamil"></p>
           <p class="q-rom" id="temple-verse-rom"></p>
           <p class="q-en" id="temple-verse-en"></p>
           <cite id="temple-verse-cite"></cite>
         </blockquote>
-        <p>The Siddhars refused the idea that flesh is an obstacle to the divine. The body is “divine technology” — the heart its sanctum, the breath its music, the senses its lamps. <strong>Explore the shrine within</strong> — select a part, or take a slow breath with the guide.</p>
+        <p data-i18n="body.lead">The Siddhars refused the idea that flesh is an obstacle to the divine. The body is “divine technology” — the heart its sanctum, the breath its music, the senses its lamps. <strong>Explore the shrine within</strong> — select a part, or take a slow breath with the guide.</p>
 
         <div class="temple">
           <div class="temple-figure">
@@ -247,22 +244,22 @@
     <section id="living" data-nav>
       <div class="wrap reveal">
         <div class="chapter-mark"><span class="cm-num">06</span><span class="cm-tamil">முத்தமிழ் · The Living Culture</span></div>
-        <p class="eyebrow">Word, sound & body</p>
-        <h2>A culture you can still touch</h2>
+        <p class="eyebrow" data-i18n="living.eyebrow">Word, sound & body</p>
+        <h2 data-i18n="living.h2">A culture you can still touch</h2>
         <p class="lead" id="mutham-intro"></p>
         <div class="mutham" id="mutham"></div>
 
         <div class="divider" aria-hidden="true"><span class="glyph">☙</span></div>
-        <h3>Living arts & festivals</h3>
+        <h3 data-i18n="living.h3arts">Living arts & festivals</h3>
         <div class="info-grid" id="arts"></div>
 
         <div class="divider" aria-hidden="true"><span class="glyph">☙</span></div>
-        <h3>The Bhakti flood</h3>
+        <h3 data-i18n="living.h3bhakti">The Bhakti flood</h3>
         <p class="muted" id="bhakti-intro"></p>
         <div class="info-grid" id="bhakti"></div>
 
         <div class="divider" aria-hidden="true"><span class="glyph">☙</span></div>
-        <h3>Women at the centre</h3>
+        <h3 data-i18n="living.h3women">Women at the centre</h3>
         <p class="muted" id="women-intro"></p>
         <div class="siddhar-grid" id="women"></div>
         <p class="muted" id="women-note" style="margin-top:1rem"></p>
@@ -276,8 +273,8 @@
     <section id="synthesis" data-nav>
       <div class="wrap reveal">
         <div class="chapter-mark"><span class="cm-num">07</span><span class="cm-tamil">தொகுப்பு · The Synthesis</span></div>
-        <h2>One identity, three voices</h2>
-        <p class="lead">The same commitments echo across three thousand years — sacred language, a spiritual ideal, a sense of space, a stance on society, and a lived practice. See how each era carried them forward.</p>
+        <h2 data-i18n="syn.h2">One identity, three voices</h2>
+        <p class="lead" data-i18n="syn.lead">The same commitments echo across three thousand years — sacred language, a spiritual ideal, a sense of space, a stance on society, and a lived practice. See how each era carried them forward.</p>
         <div class="matrix-scroll">
           <table class="matrix" id="matrix"><caption class="skip-link" style="position:static">Comparative table of Tamil thought across Sangam, Tirukkuṟaḷ and Siddhar eras</caption></table>
         </div>
@@ -288,20 +285,20 @@
     <section id="build" data-nav>
       <div class="wrap reveal">
         <div class="chapter-mark"><span class="cm-num">08</span><span class="cm-tamil">எழுவோம் · Build From Here</span></div>
-        <p class="eyebrow">Understanding becomes practice</p>
-        <h2>Now — build from here</h2>
-        <p class="lead">Being Tamil, these traditions insist, is something you <em>do</em>. Turn each pillar into one small, living practice this week. Tick what you'll carry — your choices are saved privately on your own device, no account, nothing sent anywhere.</p>
+        <p class="eyebrow" data-i18n="build.eyebrow">Understanding becomes practice</p>
+        <h2 data-i18n="build.h2">Now — build from here</h2>
+        <p class="lead" data-i18n="build.lead">Being Tamil, these traditions insist, is something you <em>do</em>. Turn each pillar into one small, living practice this week. Tick what you'll carry — your choices are saved privately on your own device, no account, nothing sent anywhere.</p>
 
         <div class="practice-grid" id="practice-grid"></div>
 
         <div class="reflect">
-          <label for="reflection">Finish the sentence: <em>“To me, being Tamil means…”</em></label>
+          <label for="reflection" data-i18n="build.reflectLabel">Finish the sentence: <em>“To me, being Tamil means…”</em></label>
           <textarea id="reflection" placeholder="Write freely. This stays on your device — a private letter to your future self."></textarea>
           <div class="row">
-            <button class="btn" id="save-reflection">Save my reflection</button>
-            <button class="btn ghost" id="clear-reflection">Clear</button>
+            <button class="btn" id="save-reflection" data-i18n="build.save">Save my reflection</button>
+            <button class="btn ghost" id="clear-reflection" data-i18n="build.clear">Clear</button>
             <span class="save-note" id="save-note" aria-live="polite"></span>
-            <span class="progress-ring" style="margin-left:auto">Pillars pledged: <b id="pledge-count">0</b>/4</span>
+            <span class="progress-ring" style="margin-left:auto"><span data-i18n="build.pledged">Pillars pledged:</span> <b id="pledge-count">0</b>/4</span>
           </div>
         </div>
       </div>
@@ -312,14 +309,14 @@
   <footer>
     <div class="wrap">
       <p class="f-verse tamil">ஒன்றே குலம் ஒருவனே தேவன்</p>
-      <p class="muted">“One is the kind (of humanity), and One is God.” — Thirumūlar. Land and language, body and soul, ethics and existence — united in the pursuit of a fully realised human life.</p>
+      <p class="muted" data-i18n="footer.motto">“One is the kind (of humanity), and One is God.” — Thirumūlar. Land and language, body and soul, ethics and existence — united in the pursuit of a fully realised human life.</p>
 
       <details>
-        <summary>Sources &amp; further reading</summary>
+        <summary data-i18n="footer.sources">Sources &amp; further reading</summary>
         <ul class="sources" id="sources"></ul>
       </details>
 
-      <p class="colophon">
+      <p class="colophon" data-i18n="footer.colophon">
         TamilIdentity∞ is an open, non-commercial educational tool. Tamil text is offered with romanised transliteration and plain-English meaning so that Tamils who read the script and those who do not — across Tamil Nadu, Eelam, Malaysia, Singapore, Mauritius, South Africa and the wider diaspora — can meet these ideas together. Dates and disputed claims are presented as such; legend is named as legend.
         <br />Built with care. <a href="https://github.com/sobanan-breakthrough/TamilIdentity">View the source on GitHub</a>.
       </p>
@@ -330,6 +327,7 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="assets/js/data.js"></script>
+  <script src="assets/js/i18n.js"></script>
   <script src="assets/js/app.js"></script>
 </body>
 </html>

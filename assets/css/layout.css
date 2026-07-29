@@ -159,11 +159,21 @@ section[id], header[id] { scroll-margin-top: 78px; }
 .kural-strip::-webkit-scrollbar-thumb:hover { background: var(--gold-soft); }
 .kural-wrap { position: relative; }
 .kural-wrap::after {
-  content: "swipe →"; position: absolute; right: 0; top: -1.9rem;
+  content: attr(data-hint); position: absolute; right: 0; top: -1.9rem;
   font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--gold); opacity: 0.75;
 }
-@media (min-width: 900px) { .kural-wrap::after { content: "drag or scroll →"; } }
+
+/* Language toggle — the primary new control, given a distinct gold outline */
+.lang-btn { border-color: var(--gold); font-weight: 700; }
+.lang-btn .ic { color: var(--gold); letter-spacing: -0.04em; }
+.lang-btn[aria-pressed="true"] { background: var(--gold); color: #1a1206; }
+.lang-btn[aria-pressed="true"] .ic { color: #1a1206; }
+
+/* In full-Tamil mode, give the script a touch more air for readability */
+html[lang="ta"] body { line-height: 1.85; }
+html[lang="ta"] p { line-height: 1.85; }
+html[lang="ta"] h1, html[lang="ta"] h2, html[lang="ta"] h3 { line-height: 1.28; }
 
 /* Progressive-enhancement guard: only hide reveal content once JS is active,
    so the page is never blank if the script fails to run. */
