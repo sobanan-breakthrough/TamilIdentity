@@ -301,6 +301,26 @@
             <span class="progress-ring" style="margin-left:auto"><span data-i18n="build.pledged">Pillars pledged:</span> <b id="pledge-count">0</b>/4</span>
           </div>
         </div>
+
+        <div class="divider" aria-hidden="true"><span class="glyph">☙</span></div>
+
+        <div class="dapp" id="dapp">
+          <p class="eyebrow" data-i18n="dapp.eyebrow">Web3 · a self-sovereign vow</p>
+          <h3 data-i18n="dapp.h3">Seal your pledge on-chain</h3>
+          <p class="muted" data-i18n="dapp.intro">Make your commitment self-sovereign. Connect a Web3 wallet and cryptographically sign your pledge with your own keys — a tamper-proof vow no one can forge or alter. It is gas-free, costs nothing, and no data ever leaves your device.</p>
+          <div class="dapp-panel">
+            <div class="dapp-row">
+              <button class="btn" id="dapp-connect">Connect wallet</button>
+              <span class="dapp-status" id="dapp-status" aria-live="polite"></span>
+            </div>
+            <div class="dapp-signblock" id="dapp-signblock" hidden>
+              <button class="btn" id="dapp-sign">Sign my pledge</button>
+              <button class="btn ghost" id="dapp-disconnect">Disconnect</button>
+            </div>
+            <div class="dapp-receipt" id="dapp-receipt" hidden></div>
+          </div>
+          <p class="dapp-foot muted" data-i18n="dapp.note">A signature is not a payment — it proves authorship with your keys, using no gas. Verify it against your address anywhere, with no central authority. To mint this vow as an on-chain token later, a smart contract would need to be deployed.</p>
+        </div>
       </div>
     </section>
   </main>
@@ -329,5 +349,6 @@
   <script src="assets/js/data.js"></script>
   <script src="assets/js/i18n.js"></script>
   <script src="assets/js/app.js"></script>
+  <script src="assets/js/dapp.js"></script>
 </body>
 </html>

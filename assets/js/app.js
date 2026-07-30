@@ -353,6 +353,7 @@
     applyStaticI18n();
     renderContent();
     updateDynamicStrings();
+    document.dispatchEvent(new CustomEvent("ti:langchange", { detail: { lang: LANG } }));
   }
   langBtn.addEventListener("click", () => setLang(LANG === "ta" ? "en" : "ta"));
 
