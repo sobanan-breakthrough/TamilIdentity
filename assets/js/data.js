@@ -18,6 +18,7 @@ const SECTIONS = [
   { id: "living", label: "The Living Culture", tamil: "முத்தமிழ்" },
   { id: "synthesis", label: "The Synthesis", tamil: "தொகுப்பு" },
   { id: "build", label: "Build From Here", tamil: "எழுவோம்" },
+  { id: "network-state", label: "The Network State", tamil: "வலையக அரசு" },
 ];
 
 /* ============================================================
@@ -327,6 +328,42 @@ const PRACTICES = [
     prompt: "When did you last treat your body as sacred, not as a tool?",
     action: "Give yourself five minutes of breath a day. The temple is already built; just walk in." },
 ];
+
+/* The Tamil Network State — a founding/genesis-phase framework, after
+   Balaji Srinivasan's "The Network State" (thenetworkstate.com). Aspirational
+   civic software; not a sovereign state and confers no legal status. */
+const NETWORK_STATE = {
+  thesis: "A network state is a highly aligned online community, with a shared moral purpose and the capacity for collective action, that crowdfunds territory around the world and may one day earn a measure of diplomatic recognition. The Tamil people are already a global, aligned nation of 80+ million without a single state of their own. This is the genesis-phase infrastructure to organise as one: a constitution, an on-chain census, a treasury, and a voice — voluntary, opt-in, and owned by no one but its citizens.",
+  commandmentLabel: "The One Commandment",
+  commandment: "யாதும் ஊரே யாவரும் கேளிர் — every town our home, every human our kin.",
+  constitution: [
+    { n: "I", title: "The One Commandment", text: "Yāthum ūrē yāvarum kēḷir. We hold universal kinship as our founding law: every town our home town, every human our kin." },
+    { n: "II", title: "Aram above power", text: "We are governed by ethical law — Aram — not by force or by birth. The just sceptre (kōl) outranks the spear (vēl); no ruler and no rule stands above justice." },
+    { n: "III", title: "One kind, one people", text: "Oṉṟē kulam. There is no caste and no hereditary rank among us. Every citizen holds one equal voice — one citizen, one vote." },
+    { n: "IV", title: "The living land", text: "We are of the five landscapes. We steward the earth, honour our ecology, and live in harmony with its rhythms." },
+    { n: "V", title: "The body & dignity", text: "The body is a temple. We uphold the health, dignity, safety and freedom of every person as sacred and inviolable." },
+    { n: "VI", title: "The mother tongue", text: "We keep, teach and advance Tamil — the language, the literature and the arts — as a living inheritance for every generation." },
+    { n: "VII", title: "Consent & exit", text: "Membership is voluntary and soulbound. Any person may enter by attestation and leave by renunciation. No one is ever bound against their will." },
+  ],
+  census: [
+    { key: "population", label: "Citizens", hint: "Aligned people who have attested to the Constitution — the on-chain census population." },
+    { key: "treasury", label: "Treasury", hint: "The collective fund to crowdfund territory & community infrastructure (income footprint)." },
+    { key: "territory", label: "Nodes", hint: "Crowdfunded physical places — the archipelago of the network (real-estate footprint)." },
+  ],
+  roadmap: [
+    { phase: "01", title: "Consciousness", detail: "A shared sense of who we are and what we value.", done: true },
+    { phase: "02", title: "Community", detail: "An aligned global network that ratifies a common Constitution.", done: false },
+    { phase: "03", title: "Census", detail: "An on-chain count of population, income and real-estate.", done: false },
+    { phase: "04", title: "Territory", detail: "Crowdfund an archipelago of physical Tamil nodes worldwide.", done: false },
+    { phase: "05", title: "Recognition", detail: "Grow the census until states grant a measure of recognition.", done: false },
+  ],
+  proposals: [
+    { title: "Ratify the Constitution v1", detail: "Adopt the seven articles above as the network's founding social smart contract." },
+    { title: "Seed the genesis treasury", detail: "Establish a citizen-governed multisig and open the treasury for contributions." },
+    { title: "Fund the first node", detail: "Crowdfund a Tamil cultural + co-working hub as the archipelago's first physical place." },
+    { title: "Diaspora mutual-aid fund", detail: "A citizen-voted fund supporting Tamil people in crisis across the world." },
+  ],
+};
 
 const SOURCES = [
   "Sangam literature & the Tolkāppiyam — Sangam literature (Wikipedia); shivaji.du.ac.in e-content on Akam/Puram",

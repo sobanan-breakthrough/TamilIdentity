@@ -190,6 +190,60 @@ html[lang="ta"] h1, html[lang="ta"] h2, html[lang="ta"] h3 { line-height: 1.28; 
   .a11y-bar .brand .word { display: none; }   /* "Tamil∞" only, frees space */
 }
 
+/* ---------- The Network State ---------- */
+.ns-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.ns-mode { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.35rem 0.7rem; border-radius: 999px; border: 1px solid var(--panel-line); color: var(--ink-soft); white-space: nowrap; }
+.ns-mode.live { color: #1a1206; background: #3fbf6f; border-color: #3fbf6f; }
+.ns-src { font-size: 0.85rem; max-width: 70ch; }
+html[lang="ta"] .ns-mode { letter-spacing: normal; }
+
+.ns-commandment { border-left-color: var(--gold); }
+.ns-commandment .q-tamil { margin-top: 0.2rem; }
+
+.ns-census { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.6rem; }
+.ns-metric { background: linear-gradient(135deg, color-mix(in srgb, var(--gold) 12%, transparent), transparent 60%), var(--panel); border: 1px solid var(--panel-line); border-radius: var(--radius); padding: 1.5rem; }
+.ns-metric-v { font-family: var(--serif); font-size: clamp(2rem, 6vw, 3rem); color: var(--gold-soft); line-height: 1; }
+.ns-metric-l { font-weight: 700; margin-top: 0.4rem; }
+.ns-metric-h { font-size: 0.85rem; color: var(--ink-soft); margin-top: 0.3rem; }
+
+.ns-articles { display: grid; gap: 0.7rem; margin-top: 1.6rem; }
+.ns-article { display: flex; gap: 1rem; background: var(--panel); border: 1px solid var(--panel-line); border-radius: 14px; padding: 1.1rem 1.3rem; transition: border-color 0.25s var(--ease); }
+.ns-article:hover { border-color: var(--gold); }
+.ns-art-n { font-family: var(--serif); font-size: 1.6rem; color: transparent; -webkit-text-stroke: 1px var(--gold); flex: none; min-width: 1.8rem; }
+.ns-art-body h4 { margin: 0 0 0.2rem; font-family: var(--serif); font-size: 1.2rem; color: var(--gold-soft); font-weight: 600; }
+.ns-art-body p { margin: 0; font-size: 0.96rem; }
+
+.ns-citizen { margin-top: 1.5rem; }
+.ns-note { font-size: 0.9rem; color: var(--gold-soft); margin-left: 0.6rem; }
+.ns-passport { max-width: 420px; border: 1px solid var(--gold); border-radius: var(--radius); padding: 1.5rem; background: linear-gradient(150deg, color-mix(in srgb, var(--kurinji) 26%, transparent), color-mix(in srgb, var(--gold) 12%, transparent)); position: relative; overflow: hidden; }
+.ns-passport::after { content: "∞"; position: absolute; right: -0.5rem; bottom: -1.6rem; font-size: 7rem; color: var(--gold); opacity: 0.12; }
+.ns-pp-top { display: flex; align-items: center; gap: 0.6rem; }
+.ns-pp-flag { font-size: 1.4rem; color: var(--gold); }
+.ns-pp-title { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+html[lang="ta"] .ns-pp-title { letter-spacing: normal; }
+.ns-pp-role { font-family: var(--serif); font-size: 1.5rem; color: var(--gold-soft); margin-top: 0.7rem; }
+.ns-pp-addr { font-family: ui-monospace, Menlo, monospace; color: var(--ink); margin-top: 0.2rem; }
+.ns-pp-meta { font-size: 0.9rem; margin-top: 0.7rem; }
+.ns-ok { color: #3fbf6f; font-weight: 700; } .ns-bad { color: #e06666; font-weight: 700; }
+.ns-pp-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1.1rem; position: relative; z-index: 1; }
+
+.ns-roadmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0.8rem; margin-top: 1.6rem; }
+.ns-phase { background: var(--panel); border: 1px solid var(--panel-line); border-radius: 14px; padding: 1.1rem; }
+.ns-phase.done { border-color: color-mix(in srgb, #3fbf6f 60%, var(--panel-line)); background: color-mix(in srgb, #3fbf6f 8%, var(--panel)); }
+.ns-phase-n { font-family: var(--serif); color: var(--gold); font-size: 0.9rem; letter-spacing: 0.1em; }
+.ns-phase-t { font-weight: 700; margin-top: 0.2rem; }
+.ns-tick { color: #3fbf6f; }
+.ns-phase-d { font-size: 0.86rem; color: var(--ink-soft); margin-top: 0.3rem; }
+
+.ns-gov { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 1.4rem; }
+.ns-prop { background: var(--panel); border: 1px solid var(--panel-line); border-radius: 14px; padding: 1.2rem; }
+.ns-prop h4 { margin: 0 0 0.3rem; font-family: var(--serif); font-size: 1.15rem; color: var(--gold-soft); }
+.ns-prop p { margin: 0 0 0.7rem; font-size: 0.92rem; color: var(--ink-soft); }
+.ns-prop-tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold); }
+html[lang="ta"] .ns-prop-tag { letter-spacing: normal; }
+.ns-deploy { font-size: 0.86rem; margin-top: 2rem; max-width: 72ch; }
+.ns-deploy code, .ns-deploy a { color: var(--gold-soft); }
+
 /* ---------- dApp — on-chain pledge ---------- */
 .dapp { margin-top: 1rem; }
 .dapp h3 { margin-top: 0.3rem; }
