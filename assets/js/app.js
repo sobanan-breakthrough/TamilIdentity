@@ -346,7 +346,9 @@
     store.set("lang", LANG);
     root.setAttribute("lang", LANG);
     langBtn.setAttribute("aria-pressed", String(LANG === "ta"));
-    langBtn.title = LANG === "ta" ? "Switch to English" : "Translate the site to Tamil";
+    const langTitle = LANG === "ta" ? "Switch to English · ஆங்கிலம்" : "Translate the site to Tamil · தமிழுக்கு மாற்று";
+    langBtn.title = langTitle;
+    langBtn.setAttribute("aria-label", langTitle);
     langLbl.textContent = LANG === "ta" ? "English" : "தமிழ்";
     applyStaticI18n();
     renderContent();
